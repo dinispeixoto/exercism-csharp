@@ -18,7 +18,7 @@ public static class Bob
             statement.IsYell() ? Answers.Yell : Answers.Anything_Else : 
         Answers.Nothing; 
 
-    public static bool IsEmpty(this string statement) => string.IsNullOrWhiteSpace(statement.Trim());
-    public static bool IsQuestion(this string statement) => statement.Contains("?") && statement.Trim().EndsWith("?");
-    public static bool IsYell(this string statement) => statement.ToUpper().Equals(statement) && statement.Any(char.IsLetter);
+    private static bool IsEmpty(this string statement) => string.IsNullOrWhiteSpace(statement.Trim());
+    private static bool IsQuestion(this string statement) => statement.Contains("?") && statement.Trim().EndsWith("?");
+    private static bool IsYell(this string statement) => statement.ToUpper().Equals(statement) && statement.Any(char.IsLetter);
 }
