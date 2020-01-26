@@ -23,7 +23,7 @@ public class Team
     public int MatchesLost { get; set; }
     public int MatchesPlayed => this.MatchesWon + this.MatchesDrawn + this.MatchesLost;
     public int Points => this.MatchesWon * (int)Match.Points.WIN + this.MatchesDrawn * (int)Match.Points.DRAW + this.MatchesLost * (int)Match.Points.LOSS;
-    public void AddMatch(Match.Points points)
+    public void AddMatch(Match.Points points) // TO-DO: Improve this method
     {
         if (points == Match.Points.WIN) this.MatchesWon++;
         else if (points == Match.Points.LOSS) this.MatchesLost++;
@@ -42,8 +42,8 @@ public static class Tournament
 
     private static Dictionary<string, Team> ProcessLines(this IEnumerable<string> lines)
     {
-        var teams = new Dictionary<string, Team>();
-        lines.ToList().ForEach(line => teams.ProcessLine(line));
+        var teams = new Dictionary<string, Team>(); 
+        lines.ToList().ForEach(line => teams.ProcessLine(line)); // TO-DO: Shouldn't be using a ToList + ForEach here
         return teams;
     }
 
@@ -77,7 +77,7 @@ public static class Tournament
     {
         using (StreamWriter writer = new StreamWriter(stream)){
             writer.Write("Team                           | MP |  W |  D |  L |  P"); 
-            lines.ToList().ForEach(line => { writer.Write("\n"); writer.Write(line); });
+            lines.ToList().ForEach(line => { writer.Write("\n"); writer.Write(line); }); // TO-DO: Improve this
         }
     }
 
