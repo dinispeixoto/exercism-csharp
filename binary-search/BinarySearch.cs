@@ -4,17 +4,16 @@ public static class BinarySearch
 {
     public static int Find(int[] input, int value)
     {
-
         var min = 0;
         var max = input.Length - 1;
 
         var result = -1;
-       
-        if (input.Length == 0 ) return result;
 
-        while(value >= input[min] && value <= input[max])
+        if (input.Length == 0) return result;
+
+        while (value >= input[min] && value <= input[max])
         {
-            var index = (min+max)/2;
+            var index = (min + max) / 2;
             var tmp_value = input[index];
 
             if (tmp_value == value)
