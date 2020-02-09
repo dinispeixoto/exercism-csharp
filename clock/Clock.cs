@@ -25,4 +25,9 @@ public class Clock
     private int CalculateHour(int hours, int minutes) => hours % HOURS_IN_A_DAY >= 0 ? hours % HOURS_IN_A_DAY + (int)Math.Floor((double)minutes/MINUTES_IN_AN_HOUR) : HOURS_IN_A_DAY + hours % HOURS_IN_A_DAY + (int)Math.Floor((double)minutes/MINUTES_IN_AN_HOUR);
 
     private int CalculateMinutes(int minutes) => minutes % MINUTES_IN_AN_HOUR >= 0 ? minutes % MINUTES_IN_AN_HOUR : MINUTES_IN_AN_HOUR + minutes % MINUTES_IN_AN_HOUR;
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(hours, minutes);
+    }
 }
