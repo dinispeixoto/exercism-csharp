@@ -17,8 +17,8 @@ public static class ScrabbleScore
 
     private static int LetterScore(char c) => scores
         .SelectMany(item => item.Value
-            .Select(value => new { letter = value, score = item.Key }))
+            .Select(value => new { letter = value, score = item.Key }))
         .ToDictionary(item => item.letter, item => item.score)[Char.ToUpper(c)];
-    
+
     public static int Score(string input) => input.Select(LetterScore).Sum();
 }
